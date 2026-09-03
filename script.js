@@ -1700,52 +1700,39 @@ function restartGame() {
 /* =========================================
    GAME SOUND
 ========================================= */
-
 function playGameSound(sound) {
 
-    if (!gameSoundOn) {
+    if (!gameSoundOn || !sound) {
         return;
     }
 
-
-    if (!sound) {
-        return;
-    }
-
-
+    sound.pause();
     sound.currentTime = 0;
+    sound.volume = 1;
 
-
-    sound.play().catch(
-        function () {}
-    );
+    sound.play().catch(function(error) {
+        console.error("Game sound error:", error);
+    });
 }
+
 
 
 /* =========================================
    BACKGROUND SOUND
 ========================================= */
-
 function playBackgroundSound() {
 
-    if (!backgroundSoundOn) {
+    if (!backgroundSoundOn || !jungleSound) {
         return;
     }
 
+    jungleSound.volume = 0.25;
 
-    if (!jungleSound) {
-        return;
-    }
-
-
-    jungleSound.volume =
-        0.25;
-
-
-    jungleSound.play().catch(
-        function () {}
-    );
+    jungleSound.play().catch(function(error) {
+        console.error("Jungle sound error:", error);
+    });
 }
+
 
 
 /* =========================================
@@ -1813,19 +1800,8 @@ gameSoundBtn.addEventListener(
    AFTER USER TOUCH/CLICK
 ========================================= */
 
-document.addEventListener(
-    "click",
-    function startMusicOnce() {
 
-        playBackgroundSound();
 
-        document.removeEventListener(
-            "click",
-            startMusicOnce
-        );
-
-    }
-);
 
 
 /* =========================================
