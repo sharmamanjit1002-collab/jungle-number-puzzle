@@ -1800,8 +1800,26 @@ gameSoundBtn.addEventListener(
    START BACKGROUND MUSIC
    AFTER USER TOUCH/CLICK
 ========================================= */
+backgroundSoundBtn.addEventListener("click", function () {
+    backgroundSoundOn = !backgroundSoundOn;
 
+    if (backgroundSoundOn) {
+        backgroundSoundBtn.textContent = "🎵 Jungle Sound ON";
+        playBackgroundSound();
+    } else {
+        backgroundSoundBtn.textContent = "🔇 Jungle Sound OFF";
+        jungleSound.pause();
+    }
+});
+gameSoundBtn.addEventListener("click", function () {
+    gameSoundOn = !gameSoundOn;
 
+    if (gameSoundOn) {
+        gameSoundBtn.textContent = "🔊 Game Sound ON";
+    } else {
+        gameSoundBtn.textContent = "🔇 Game Sound OFF";
+    }
+});
 
 
 
