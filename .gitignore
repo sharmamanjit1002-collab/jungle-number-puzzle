@@ -27,6 +27,5 @@ yarn-error.log*
 # Optional npm cache
 .npm
 
-# Audio files (placeholder - add actual files locally)
-sounds/*.mp3
-!sounds/README.md
+# Audio files
+sounds/
