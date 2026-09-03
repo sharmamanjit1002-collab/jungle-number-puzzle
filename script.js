@@ -1800,19 +1800,6 @@ gameSoundBtn.addEventListener(
    START BACKGROUND MUSIC
    AFTER USER TOUCH/CLICK
 ========================================= */
-document.addEventListener(
-    "click",
-    function startMusicOnce() {
-
-        playBackgroundSound();
-
-        document.removeEventListener(
-            "click",
-            startMusicOnce
-        );
-
-    }
-);
 
 
 
