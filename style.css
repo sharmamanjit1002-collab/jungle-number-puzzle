@@ -840,7 +840,38 @@ body {
 
     cursor: pointer;
 }
+@media (max-width: 380px) {
 
+    .game-title h1 {
+        font-size: 20px;
+    }
+
+    .game-title p {
+        font-size: 11px;
+    }
+
+    .title-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 25px;
+    }
+
+    .game-card {
+        padding: 11px;
+    }
+
+    .question-box {
+        padding: 16px 8px;
+    }
+
+    .puzzle {
+        font-size: 27px;
+    }
+
+    .answer-button {
+        font-size: 18px;
+    }
+}
 
     /* =====================================
    COMPACT MOBILE GAME
