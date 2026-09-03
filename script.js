@@ -1701,18 +1701,18 @@ function restartGame() {
    GAME SOUND
 ========================================= */
 function playGameSound(sound) {
+    if (!gameSoundOn || !sound) return;
 
-    if (!gameSoundOn || !sound) {
-        return;
-    }
-
-    sound.pause();
     sound.currentTime = 0;
     sound.volume = 1;
 
-    sound.play().catch(function(error) {
-        console.error("Game sound error:", error);
-    });
+    const playPromise = sound.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(function(error) {
+            console.log("Game sound could not play:", error);
+        });
+    }
 }
 
 
@@ -1721,16 +1721,17 @@ function playGameSound(sound) {
    BACKGROUND SOUND
 ========================================= */
 function playBackgroundSound() {
-
-    if (!backgroundSoundOn || !jungleSound) {
-        return;
-    }
+    if (!backgroundSoundOn || !jungleSound) return;
 
     jungleSound.volume = 0.25;
 
-    jungleSound.play().catch(function(error) {
-        console.error("Jungle sound error:", error);
-    });
+    const playPromise = jungleSound.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(function(error) {
+            console.log("Jungle sound could not play:", error);
+        });
+    }
 }
 
 
